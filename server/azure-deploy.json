@@ -1,0 +1,148 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "containerName": {
+      "type": "string",
+      "defaultValue": "google-ranker",
+      "metadata": {
+        "description": "Name of the container"
+      }
+    },
+    "location": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]",
+      "metadata": {
+        "description": "Location for all resources"
+      }
+    },
+    "imageName": {
+      "type": "string",
+      "defaultValue": "scale112/google-ranker:latest",
+      "metadata": {
+        "description": "Docker image from Docker Hub"
+      }
+    },
+    "cpuCores": {
+      "type": "string",
+      "defaultValue": "1",
+      "metadata": {
+        "description": "Number of CPU cores"
+      }
+    },
+    "memoryInGb": {
+      "type": "string",
+      "defaultValue": "1.5",
+      "metadata": {
+        "description": "Memory in GB"
+      }
+    },
+    "dnsNameLabel": {
+      "type": "string",
+      "defaultValue": "google-ranker",
+      "metadata": {
+        "description": "DNS name label for public IP"
+      }
+    },
+    "port": {
+      "type": "int",
+      "defaultValue": 5000,
+      "metadata": {
+        "description": "Port to expose"
+      }
+    }
+  },
+  "variables": {
+    "containerGroupName": "[parameters('containerName')]"
+  },
+  "resources": [
+    {
+      "type": "Microsoft.ContainerInstance/containerGroups",
+      "apiVersion": "2021-09-01",
+      "name": "[variables('containerGroupName')]",
+      "location": "[parameters('location')]",
+      "properties": {
+        "containers": [
+          {
+            "name": "[parameters('containerName')]",
+            "properties": {
+              "image": "[parameters('imageName')]",
+              "ports": [
+                {
+                  "port": "[parameters('port')]",
+                  "protocol": "TCP"
+                }
+              ],
+              "resources": {
+                "requests": {
+                  "cpu": "[parameters('cpuCores')]",
+                  "memoryInGB": "[parameters('memoryInGb')]"
+                }
+              },
+              "environmentVariables": [
+                {
+                  "name": "PORT",
+                  "value": "5000"
+                },
+                {
+                  "name": "NODE_ENV",
+                  "value": "production"
+                },
+                {
+                  "name": "TOKEN_ENCRYPTION_KEY",
+                  "value": "gmb-boost-pro-2024-secure-encryption-key-change-this-in-production-32chars"
+                },
+                {
+                  "name": "BACKEND_URL",
+                  "value": "https://google-ranker-g5h9g6edawdhbjcw.canadacentral-01.azurewebsites.net"
+                },
+                {
+                  "name": "FRONTEND_URL",
+                  "value": "https://happy-forest-0fe6bb90f.3.azurestaticapps.net"
+                },
+                {
+                  "name": "GOOGLE_REDIRECT_URI",
+                  "value": "https://happy-forest-0fe6bb90f.3.azurestaticapps.net/auth/google/callback"
+                },
+                {
+                  "name": "ALLOWED_ORIGINS",
+                  "value": "https://happy-forest-0fe6bb90f.3.azurestaticapps.net,http://localhost:3000,http://localhost:5173"
+                }
+              ]
+            }
+          }
+        ],
+        "osType": "Linux",
+        "restartPolicy": "Always",
+        "ipAddress": {
+          "type": "Public",
+          "ports": [
+            {
+              "port": "[parameters('port')]",
+              "protocol": "TCP"
+            }
+          ],
+          "dnsNameLabel": "[parameters('dnsNameLabel')]"
+        }
+      }
+    }
+  ],
+  "outputs": {
+    "containerIPv4Address": {
+      "type": "string",
+      "value": "[reference(resourceId('Microsoft.ContainerInstance/containerGroups', variables('containerGroupName'))).ipAddress.ip]"
+    },
+    "containerFQDN": {
+      "type": "string",
+      "value": "[reference(resourceId('Microsoft.ContainerInstance/containerGroups', variables('containerGroupName'))).ipAddress.fqdn]"
+    },
+    "containerUrl": {
+      "type": "string",
+      "value": "[concat('http://', reference(resourceId('Microsoft.ContainerInstance/containerGroups', variables('containerGroupName'))).ipAddress.fqdn, ':', parameters('port'))]"
+    },
+    "healthCheckUrl": {
+      "type": "string",
+      "value": "[concat('http://', reference(resourceId('Microsoft.ContainerInstance/containerGroups', variables('containerGroupName'))).ipAddress.fqdn, ':', parameters('port'), '/health')]"
+    }
+  }
+}
