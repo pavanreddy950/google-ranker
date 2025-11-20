@@ -28,19 +28,9 @@ export default defineConfig(({ mode }) => ({
         manualChunks(id) {
           // Split node_modules into vendor chunks
           if (id.includes('node_modules')) {
-            // React and React ecosystem
+            // React and React ecosystem - MUST be first to load
             if (id.includes('react') || id.includes('react-dom') || id.includes('react-router')) {
               return 'vendor-react';
-            }
-            
-            // Radix UI components
-            if (id.includes('@radix-ui')) {
-              return 'vendor-ui';
-            }
-            
-            // Form libraries
-            if (id.includes('react-hook-form') || id.includes('zod') || id.includes('@hookform')) {
-              return 'vendor-form';
             }
             
             // Firebase - handle modular imports
@@ -48,12 +38,12 @@ export default defineConfig(({ mode }) => ({
               return 'vendor-firebase';
             }
             
-            // Google APIs
-            if (id.includes('googleapis') || id.includes('google')) {
-              return 'vendor-google';
+            // Radix UI components (depends on React)
+            if (id.includes('@radix-ui')) {
+              return 'vendor-ui';
             }
             
-            // Charts
+            // Charts (depends on React)
             if (id.includes('recharts')) {
               return 'vendor-charts';
             }
@@ -63,13 +53,19 @@ export default defineConfig(({ mode }) => ({
               return 'vendor-icons';
             }
             
+            // Form libraries
+            if (id.includes('react-hook-form') || id.includes('zod') || id.includes('@hookform')) {
+              return 'vendor-form';
+            }
+            
             // Utilities
             if (id.includes('date-fns') || id.includes('clsx') || id.includes('tailwind-merge') || id.includes('class-variance-authority')) {
               return 'vendor-utils';
             }
             
-            // All other node_modules
-            return 'vendor-other';
+            // Keep googleapis and other large libraries in main vendor chunk
+            // to avoid cross-chunk dependency issues
+            return 'vendor';
           }
         },
       },
