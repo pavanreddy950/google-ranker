@@ -1,0 +1,30 @@
+{
+  "settings": {},
+  "automations": {
+    "12580110398960005959": {
+      "autoPosting": {
+        "enabled": true,
+        "schedule": "09:00",
+        "frequency": "alternative",
+        "businessName": "Business",
+        "category": "business",
+        "keywords": "quality service, customer satisfaction",
+        "userId": "RTP1qckCmZMPXTiEMqKeRwGTPxw1"
+      },
+      "autoReply": {
+        "enabled": true,
+        "replyToAll": true,
+        "replyToPositive": true,
+        "replyToNegative": true,
+        "replyToNeutral": true,
+        "businessName": "Current Location",
+        "keywords": "Aventa Granites, aventa, granites, Ajmer, Aventa Granites Ajmer",
+        "category": "Marble Store",
+        "userId": "RTP1qckCmZMPXTiEMqKeRwGTPxw1",
+        "accountId": "114365245834970891636"
+      },
+      "updatedAt": "2025-11-15T07:31:48.195Z",
+      "userId": "RTP1qckCmZMPXTiEMqKeRwGTPxw1"
+    }
+  }
+}

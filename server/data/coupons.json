@@ -1,0 +1,53 @@
+{
+  "RAJATEST": {
+    "code": "RAJATEST",
+    "discount": 100,
+    "type": "percentage",
+    "active": true,
+    "isActive": true,
+    "maxUses": 10000,
+    "usedCount": 0,
+    "currentUses": 0,
+    "description": "Internal testing - Pay only ₹1",
+    "validUntil": "2030-12-31T23:59:59.999Z",
+    "expiresAt": "2030-12-31T23:59:59.999Z",
+    "hidden": true,
+    "oneTimePerUser": false,
+    "usedBy": [],
+    "createdAt": "2025-01-14T00:00:00.000Z"
+  },
+  "PAVANTEST": {
+    "code": "PAVANTEST",
+    "discount": 100,
+    "type": "percentage",
+    "active": true,
+    "isActive": true,
+    "maxUses": 10000,
+    "usedCount": 3,
+    "currentUses": 3,
+    "description": "Pavan testing coupon - Pay only ₹1",
+    "validUntil": "2030-12-31T23:59:59.999Z",
+    "expiresAt": "2030-12-31T23:59:59.999Z",
+    "hidden": true,
+    "oneTimePerUser": false,
+    "usedBy": [],
+    "createdAt": "2025-01-14T00:00:00.000Z"
+  },
+  "ASEGSARBGSDFBDFBFB": {
+    "code": "ASEGSARBGSDFBDFBFB",
+    "discount": 12,
+    "type": "percentage",
+    "active": true,
+    "isActive": true,
+    "maxUses": 1,
+    "usedCount": 0,
+    "currentUses": 0,
+    "description": "",
+    "validUntil": "2025-12-31T00:00:00.000Z",
+    "expiresAt": "2025-12-31T00:00:00.000Z",
+    "oneTimePerUser": false,
+    "singleUse": true,
+    "usedBy": [],
+    "createdAt": "2025-11-15T07:41:01.951Z"
+  }
+}

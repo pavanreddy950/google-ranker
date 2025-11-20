@@ -1,0 +1,36 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(find . -type f ( -name \"*.tsx\" -o -name \"*.ts\" -o -name \"*.jsx\" -o -name \"*.js\" ) -exec sed -i 's/LOBAISEO/Google Ranker/g' {} +)",
+      "Bash(find:*)",
+      "Bash(find . -type f ( -name \"*.tsx\" -o -name \"*.ts\" -o -name \"*.jsx\" -o -name \"*.js\" ) -exec sed -i 's/lobaiseo/googleranker/g' {} +)",
+      "Bash(node server.js:*)",
+      "Bash(timeout 5 node:*)",
+      "Bash(timeout 8 node:*)",
+      "Bash(netstat:*)",
+      "Bash(findstr:*)",
+      "Bash(taskkill /PID 35344 /F)",
+      "Bash(cmd //c \"taskkill /PID 35344 /F\")",
+      "Bash(nul)",
+      "Bash(copy srcindex.css srcindex.css.backup)",
+      "Bash(taskkill:*)",
+      "Bash(cmd //c \"taskkill /PID 31016 /F\")",
+      "Bash(dir:*)",
+      "Bash(copy \"Frame 24.svg\" \"Frame 24.svg.backup\")",
+      "Bash(copy:*)",
+      "Bash(ren:*)",
+      "Bash(npm run dev:*)",
+      "Bash(ls:*)",
+      "Bash(node scripts/clearAllData.js:*)",
+      "Bash(node scripts/clearFirestoreSubscriptions.js:*)",
+      "Bash(timeout 5 sleep:*)",
+      "Bash(timeout 3 sleep:*)",
+      "Bash(node scripts/setAdminRole.js:*)",
+      "Bash(cmd //c \"taskkill /PID 32848 /F\")",
+      "Bash(cmd //c \"taskkill /PID 21016 /F\")",
+      "Bash(cmd //c \"taskkill /PID 7024 /F\")"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
