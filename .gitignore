@@ -6,7 +6,7 @@ bun.lockb
 # Note: .env and service keys ARE being committed (NOT RECOMMENDED for production)
 
 # Build outputs
-dist/
+# dist/ - INCLUDED for deployment
 build/
 *.local
 
