@@ -26,7 +26,7 @@ ENV TOKEN_ENCRYPTION_KEY=gmb-boost-pro-2024-secure-encryption-key-change-this-in
 **Additional Variables Added:**
 ```dockerfile
 # Backend URL (for proper CORS and redirects)
-ENV BACKEND_URL=https://google-ranker-g5h9g6edawdhbjcw.canadacentral-01.azurewebsites.net
+ENV BACKEND_URL=https://google-ranker-123-bjfkcffffyf0fagk.canadacentral-01.azurewebsites.net
 
 # Email Service (Optional - SendGrid)
 ENV SENDGRID_API_KEY=
@@ -47,8 +47,8 @@ ENV TWILIO_PHONE_NUMBER=
 
 ### 3. Rebuilt and Pushed to Docker Hub
 
-✅ **New Image Version**: `scale112/google-ranker:v1.1`
-✅ **Updated Latest**: `scale112/google-ranker:latest`
+✅ **New Image Version**: `googleranker/google-ranker:v1.1`
+✅ **Updated Latest**: `googleranker/google-ranker:latest`
 
 **New Digest**: `sha256:5763ef5d268c25da770868f9149a1c687db684176015780a96d5f793d2800468`
 
@@ -60,7 +60,7 @@ ENV TWILIO_PHONE_NUMBER=
 
 ```bash
 # Pull latest image (with fix)
-docker pull scale112/google-ranker:latest
+docker pull googleranker/google-ranker:latest
 
 # Stop old container
 docker-compose down
@@ -80,13 +80,13 @@ docker logs -f google-ranker
 2. **Create new container** with these settings:
 
 ```
-Image: scale112/google-ranker:latest
+Image: googleranker/google-ranker:latest
 Port: 5000
 
 Environment Variables (Add these):
   TOKEN_ENCRYPTION_KEY = gmb-boost-pro-2024-secure-encryption-key-change-this-in-production-32chars
-  BACKEND_URL = https://google-ranker-g5h9g6edawdhbjcw.canadacentral-01.azurewebsites.net
-  FRONTEND_URL = https://google-ranker-g5h9g6edawdhbjcw.canadacentral-01.azurewebsites.net
+  BACKEND_URL = https://google-ranker-123-bjfkcffffyf0fagk.canadacentral-01.azurewebsites.net
+  FRONTEND_URL = https://google-ranker-123-bjfkcffffyf0fagk.canadacentral-01.azurewebsites.net
 ```
 
 #### Option 2: Azure CLI (Automated)
@@ -102,7 +102,7 @@ az container delete \
 az container create \
   --resource-group google-ranker-rg \
   --name google-ranker \
-  --image scale112/google-ranker:latest \
+  --image googleranker/google-ranker:latest \
   --dns-name-label google-ranker \
   --ports 5000 \
   --cpu 1 \
@@ -110,8 +110,8 @@ az container create \
   --restart-policy Always \
   --environment-variables \
     TOKEN_ENCRYPTION_KEY='gmb-boost-pro-2024-secure-encryption-key-change-this-in-production-32chars' \
-    BACKEND_URL='https://google-ranker-g5h9g6edawdhbjcw.canadacentral-01.azurewebsites.net' \
-    FRONTEND_URL='https://google-ranker-g5h9g6edawdhbjcw.canadacentral-01.azurewebsites.net'
+    BACKEND_URL='https://google-ranker-123-bjfkcffffyf0fagk.canadacentral-01.azurewebsites.net' \
+    FRONTEND_URL='https://google-ranker-123-bjfkcffffyf0fagk.canadacentral-01.azurewebsites.net'
 ```
 
 #### Option 3: ARM Template (Recommended)
@@ -248,7 +248,7 @@ If issues occur, rollback to previous version:
 
 ```bash
 # Use specific version (before encryption key)
-docker pull scale112/google-ranker:v1.0
+docker pull googleranker/google-ranker:v1.0
 
 # Or rebuild locally from your code
 docker build -t google-ranker:latest .
@@ -284,6 +284,6 @@ If you still see errors after deploying:
 **Issue**: Missing `TOKEN_ENCRYPTION_KEY` causing OAuth token decryption failures  
 **Fix**: Added encryption key and other missing environment variables  
 **Status**: ✅ RESOLVED  
-**Action Required**: Redeploy container with updated image `scale112/google-ranker:latest`
+**Action Required**: Redeploy container with updated image `googleranker/google-ranker:latest`
 
 **Your container is now ready for production! 🚀**

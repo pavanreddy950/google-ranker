@@ -5,7 +5,7 @@
 $ResourceGroup = "google-ranker-rg"
 $Location = "eastus"
 $ContainerName = "google-ranker"
-$Image = "scale112/google-ranker:latest"
+$Image = "googleranker/google-ranker:latest"
 $DnsLabel = "google-ranker"
 $Port = 5000
 $Cpu = 1

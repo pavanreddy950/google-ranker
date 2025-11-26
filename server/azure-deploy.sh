@@ -14,7 +14,7 @@ echo ""
 RESOURCE_GROUP="google-ranker-rg"
 LOCATION="eastus"
 CONTAINER_NAME="google-ranker"
-IMAGE="scale112/google-ranker:latest"
+IMAGE="googleranker/google-ranker:latest"
 DNS_LABEL="google-ranker"
 PORT=5000
 CPU=1

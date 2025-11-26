@@ -48,7 +48,7 @@ services:
       - TOKEN_ENCRYPTION_KEY=gmb-boost-pro-2024-secure-encryption-key-change-this-in-production-32chars
       
       # Backend URL
-      - BACKEND_URL=https://google-ranker-g5h9g6edawdhbjcw.canadacentral-01.azurewebsites.net
+      - BACKEND_URL=https://google-ranker-123-bjfkcffffyf0fagk.canadacentral-01.azurewebsites.net
       
       # Hybrid Mode - Multiple origins for CORS
       - ALLOWED_ORIGINS=https://happy-forest-0fe6bb90f.3.azurestaticapps.net,http://localhost:3000,http://localhost:5173

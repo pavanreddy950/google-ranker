@@ -4,11 +4,11 @@ Your Google Ranker backend is now available on Docker Hub!
 
 ## 🐳 Docker Hub Repository
 
-**Image**: `scale112/google-ranker`
+**Image**: `googleranker/google-ranker`
 
 **Available Tags**:
-- `scale112/google-ranker:latest` - Latest version
-- `scale112/google-ranker:v1.0` - Version 1.0
+- `googleranker/google-ranker:latest` - Latest version
+- `googleranker/google-ranker:v1.0` - Version 1.0
 
 ## 📥 Pull from Docker Hub
 
@@ -16,14 +16,14 @@ Your Google Ranker backend is now available on Docker Hub!
 
 ```bash
 # Pull the image
-docker pull scale112/google-ranker:latest
+docker pull googleranker/google-ranker:latest
 
 # Run the container
 docker run -d \
   --name google-ranker \
   -p 5000:5000 \
   --restart unless-stopped \
-  scale112/google-ranker:latest
+  googleranker/google-ranker:latest
 ```
 
 ### Using Docker Compose (Recommended)
@@ -66,14 +66,14 @@ sh get-docker.sh
 
 ```bash
 # Pull the image
-docker pull scale112/google-ranker:latest
+docker pull googleranker/google-ranker:latest
 
 # Run the container
 docker run -d \
   --name google-ranker \
   -p 5000:5000 \
   --restart unless-stopped \
-  scale112/google-ranker:latest
+  googleranker/google-ranker:latest
 ```
 
 ### Step 3: Verify
@@ -97,14 +97,14 @@ docker stop google-ranker
 docker rm google-ranker
 
 # Pull latest image
-docker pull scale112/google-ranker:latest
+docker pull googleranker/google-ranker:latest
 
 # Run new container
 docker run -d \
   --name google-ranker \
   -p 5000:5000 \
   --restart unless-stopped \
-  scale112/google-ranker:latest
+  googleranker/google-ranker:latest
 ```
 
 Or with docker-compose:
@@ -122,12 +122,12 @@ When you make changes and want to update Docker Hub:
 docker build -t google-ranker:latest .
 
 # Tag for Docker Hub
-docker tag google-ranker:latest scale112/google-ranker:latest
-docker tag google-ranker:latest scale112/google-ranker:v1.1
+docker tag google-ranker:latest googleranker/google-ranker:latest
+docker tag google-ranker:latest googleranker/google-ranker:v1.1
 
 # Push to Docker Hub
-docker push scale112/google-ranker:latest
-docker push scale112/google-ranker:v1.1
+docker push googleranker/google-ranker:latest
+docker push googleranker/google-ranker:v1.1
 ```
 
 Or use the batch script:
@@ -148,12 +148,12 @@ curl -fsSL https://get.docker.com -o get-docker.sh
 sudo sh get-docker.sh
 
 # Pull and run
-sudo docker pull scale112/google-ranker:latest
+sudo docker pull googleranker/google-ranker:latest
 sudo docker run -d \
   --name google-ranker \
   -p 5000:5000 \
   --restart unless-stopped \
-  scale112/google-ranker:latest
+  googleranker/google-ranker:latest
 ```
 
 ### Azure Container Instances
@@ -162,7 +162,7 @@ sudo docker run -d \
 az container create \
   --resource-group myResourceGroup \
   --name google-ranker \
-  --image scale112/google-ranker:latest \
+  --image googleranker/google-ranker:latest \
   --dns-name-label google-ranker \
   --ports 5000
 ```
@@ -171,7 +171,7 @@ az container create \
 
 ```bash
 gcloud run deploy google-ranker \
-  --image scale112/google-ranker:latest \
+  --image googleranker/google-ranker:latest \
   --platform managed \
   --port 5000 \
   --allow-unauthenticated
@@ -184,12 +184,12 @@ gcloud run deploy google-ranker \
 # SSH into droplet
 
 # Pull and run
-docker pull scale112/google-ranker:latest
+docker pull googleranker/google-ranker:latest
 docker run -d \
   --name google-ranker \
   -p 5000:5000 \
   --restart unless-stopped \
-  scale112/google-ranker:latest
+  googleranker/google-ranker:latest
 ```
 
 ## 🔧 Environment Variables
@@ -206,13 +206,13 @@ No additional configuration needed!
 
 ```bash
 # View image details
-docker inspect scale112/google-ranker:latest
+docker inspect googleranker/google-ranker:latest
 
 # Check image size
-docker images scale112/google-ranker
+docker images googleranker/google-ranker
 
 # View image layers
-docker history scale112/google-ranker:latest
+docker history googleranker/google-ranker:latest
 ```
 
 ## 🔐 Security Notes
@@ -228,12 +228,12 @@ For production:
 
 **Pull Image:**
 ```bash
-docker pull scale112/google-ranker:latest
+docker pull googleranker/google-ranker:latest
 ```
 
 **Run Container:**
 ```bash
-docker run -d --name google-ranker -p 5000:5000 scale112/google-ranker:latest
+docker run -d --name google-ranker -p 5000:5000 googleranker/google-ranker:latest
 ```
 
 **View Logs:**
@@ -253,7 +253,7 @@ docker rm google-ranker
 
 **Update to Latest:**
 ```bash
-docker pull scale112/google-ranker:latest && docker stop google-ranker && docker rm google-ranker && docker run -d --name google-ranker -p 5000:5000 scale112/google-ranker:latest
+docker pull googleranker/google-ranker:latest && docker stop google-ranker && docker rm google-ranker && docker run -d --name google-ranker -p 5000:5000 googleranker/google-ranker:latest
 ```
 
 ## 🌟 Access Your Backend
@@ -273,13 +273,13 @@ docker logs google-ranker
 **Port already in use:**
 ```bash
 # Use different port
-docker run -d --name google-ranker -p 8080:5000 scale112/google-ranker:latest
+docker run -d --name google-ranker -p 8080:5000 googleranker/google-ranker:latest
 ```
 
 **Need to reset:**
 ```bash
 docker stop google-ranker
 docker rm google-ranker
-docker pull scale112/google-ranker:latest
-docker run -d --name google-ranker -p 5000:5000 scale112/google-ranker:latest
+docker pull googleranker/google-ranker:latest
+docker run -d --name google-ranker -p 5000:5000 googleranker/google-ranker:latest
 ```

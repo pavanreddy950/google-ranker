@@ -45,7 +45,7 @@ ENV AZURE_OPENAI_API_VERSION=2024-02-15-preview
 ENV TOKEN_ENCRYPTION_KEY=gmb-boost-pro-2024-secure-encryption-key-change-this-in-production-32chars
 
 # Backend URL (Azure Container Instance)
-ENV BACKEND_URL=https://google-ranker-g5h9g6edawdhbjcw.canadacentral-01.azurewebsites.net
+ENV BACKEND_URL=https://google-ranker-123-bjfkcffffyf0fagk.canadacentral-01.azurewebsites.net
 
 # Hybrid Mode - Support both Azure Static Web Apps and local dev
 ENV ALLOWED_ORIGINS=https://happy-forest-0fe6bb90f.3.azurestaticapps.net,http://localhost:3000,http://localhost:5173

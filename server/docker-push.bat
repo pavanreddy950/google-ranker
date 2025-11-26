@@ -7,13 +7,13 @@ echo.
 cd /d "%~dp0"
 
 echo Tagging image...
-docker tag google-ranker:latest scale112/google-ranker:latest
-docker tag google-ranker:latest scale112/google-ranker:v1.0
+docker tag google-ranker:latest googleranker/google-ranker:latest
+docker tag google-ranker:latest googleranker/google-ranker:v1.0
 
 echo.
-echo Pushing to Docker Hub (scale112/google-ranker)...
-docker push scale112/google-ranker:latest
-docker push scale112/google-ranker:v1.0
+echo Pushing to Docker Hub (googleranker/google-ranker)...
+docker push googleranker/google-ranker:latest
+docker push googleranker/google-ranker:v1.0
 
 if %ERRORLEVEL% EQU 0 (
     echo.
@@ -22,11 +22,11 @@ if %ERRORLEVEL% EQU 0 (
     echo ========================================
     echo.
     echo Image URLs:
-    echo   scale112/google-ranker:latest
-    echo   scale112/google-ranker:v1.0
+    echo   googleranker/google-ranker:latest
+    echo   googleranker/google-ranker:v1.0
     echo.
     echo To pull on another machine:
-    echo   docker pull scale112/google-ranker:latest
+    echo   docker pull googleranker/google-ranker:latest
     echo.
 ) else (
     echo.

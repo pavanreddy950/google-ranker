@@ -18,7 +18,7 @@
     },
     "imageName": {
       "type": "string",
-      "defaultValue": "scale112/google-ranker:latest",
+      "defaultValue": "googleranker/google-ranker:latest",
       "metadata": {
         "description": "Docker image from Docker Hub"
       }
@@ -94,7 +94,7 @@
                 },
                 {
                   "name": "BACKEND_URL",
-                  "value": "https://google-ranker-g5h9g6edawdhbjcw.canadacentral-01.azurewebsites.net"
+                  "value": "https://google-ranker-123-bjfkcffffyf0fagk.canadacentral-01.azurewebsites.net"
                 },
                 {
                   "name": "FRONTEND_URL",

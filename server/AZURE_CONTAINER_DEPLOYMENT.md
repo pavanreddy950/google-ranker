@@ -8,7 +8,7 @@
 
 **Image Source**: `Other container registries`
 
-**Image and Tag**: `scale112/google-ranker:latest`
+**Image and Tag**: `googleranker/google-ranker:latest`
 
 **OS Type**: `Linux`
 
@@ -39,7 +39,7 @@
 |-------|-------|
 | **Image Source** | `Other container registries` |
 | **Image Type** | Public |
-| **Image** | `scale112/google-ranker:latest` |
+| **Image** | `googleranker/google-ranker:latest` |
 | **OS Type** | Linux |
 | **Size** | |
 | - **CPU** | `1` cores |
@@ -97,7 +97,7 @@ Basics:
   Container Name: google-ranker
   Region: East US (or your preferred region)
   Image Source: Other container registries
-  Image: scale112/google-ranker:latest
+  Image: googleranker/google-ranker:latest
   OS Type: Linux
   Size: 1 vCPU, 1.5 GB memory
 
@@ -132,7 +132,7 @@ az group create \
 az container create \
   --resource-group google-ranker-rg \
   --name google-ranker \
-  --image scale112/google-ranker:latest \
+  --image googleranker/google-ranker:latest \
   --dns-name-label google-ranker \
   --ports 5000 \
   --cpu 1 \
@@ -154,7 +154,7 @@ New-AzResourceGroup -Name google-ranker-rg -Location eastus
 New-AzContainerGroup `
   -ResourceGroupName google-ranker-rg `
   -Name google-ranker `
-  -Image scale112/google-ranker:latest `
+  -Image googleranker/google-ranker:latest `
   -DnsNameLabel google-ranker `
   -Port 5000 `
   -Cpu 1 `
@@ -198,7 +198,7 @@ Save as `azure-deploy.json`:
           {
             "name": "google-ranker",
             "properties": {
-              "image": "scale112/google-ranker:latest",
+              "image": "googleranker/google-ranker:latest",
               "ports": [
                 {
                   "port": 5000,
@@ -255,7 +255,7 @@ az deployment group create \
 az container create \
   --resource-group google-ranker-rg \
   --name google-ranker-with-nginx \
-  --image scale112/google-ranker:latest \
+  --image googleranker/google-ranker:latest \
   --dns-name-label google-ranker \
   --cpu 1 \
   --memory 1.5 \
@@ -277,7 +277,7 @@ version: '3.8'
 
 services:
   google-ranker:
-    image: scale112/google-ranker:latest
+    image: googleranker/google-ranker:latest
     container_name: google-ranker-backend
     ports:
       - "5000:5000"
@@ -374,7 +374,7 @@ az container delete \
 az container create \
   --resource-group google-ranker-rg \
   --name google-ranker \
-  --image scale112/google-ranker:latest \
+  --image googleranker/google-ranker:latest \
   --dns-name-label google-ranker \
   --ports 5000 \
   --cpu 1 \
@@ -392,7 +392,7 @@ az container create \
 az container create \
   --resource-group google-ranker-rg \
   --name google-ranker \
-  --image scale112/google-ranker:latest \
+  --image googleranker/google-ranker:latest \
   --dns-name-label google-ranker \
   --ports 5000 \
   --cpu 1 \
@@ -425,7 +425,7 @@ az group delete \
 
 **Container Details:**
 - **Name**: google-ranker
-- **Image**: scale112/google-ranker:latest
+- **Image**: googleranker/google-ranker:latest
 - **Port**: 5000
 - **CPU**: 1 core
 - **Memory**: 1.5 GB

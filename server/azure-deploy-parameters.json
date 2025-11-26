@@ -9,7 +9,7 @@
       "value": "eastus"
     },
     "imageName": {
-      "value": "scale112/google-ranker:latest"
+      "value": "googleranker/google-ranker:latest"
     },
     "cpuCores": {
       "value": "1"

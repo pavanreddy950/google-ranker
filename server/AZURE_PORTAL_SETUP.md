@@ -36,7 +36,7 @@ SKU: Standard
 ### Image Settings
 ```
 Image type: ● Public  ○ Private
-Image: scale112/google-ranker:latest
+Image: googleranker/google-ranker:latest
 OS type: ● Linux  ○ Windows
 ```
 
@@ -124,7 +124,7 @@ Basics:
   Region: East US
   
 Container:
-  Image: scale112/google-ranker:latest
+  Image: googleranker/google-ranker:latest
   OS: Linux
   Size: 1 vCPU, 1.5 GB
   
@@ -176,7 +176,7 @@ http://google-ranker.eastus.azurecontainer.io:5000/api/...
 ```
 Container Name:     google-ranker
 Image Source:       Other container registries
-Image:             scale112/google-ranker:latest
+Image:             googleranker/google-ranker:latest
 OS Type:           Linux
 CPU:               1
 Memory:            1.5 GB
@@ -197,7 +197,7 @@ If you want to add NGINX as reverse proxy:
 **Container 1: Backend**
 ```
 Name: google-ranker-backend
-Image: scale112/google-ranker:latest
+Image: googleranker/google-ranker:latest
 Port: 5000
 CPU: 1
 Memory: 1.5 GB
@@ -260,7 +260,7 @@ Or use CLI:
 az container create \
   --resource-group google-ranker-rg \
   --name google-ranker \
-  --image scale112/google-ranker:latest \
+  --image googleranker/google-ranker:latest \
   --dns-name-label google-ranker \
   --ports 5000 \
   --cpu 1 \
@@ -273,7 +273,7 @@ az container create \
 ## 📝 Complete Configuration Checklist
 
 - [x] Image Source: Other container registries
-- [x] Image: scale112/google-ranker:latest
+- [x] Image: googleranker/google-ranker:latest
 - [x] Container Name: google-ranker
 - [x] OS Type: Linux
 - [x] CPU: 1 core

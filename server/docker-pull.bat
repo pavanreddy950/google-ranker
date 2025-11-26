@@ -7,12 +7,12 @@ echo.
 cd /d "%~dp0"
 
 echo Pulling latest image from Docker Hub...
-docker pull scale112/google-ranker:latest
+docker pull googleranker/google-ranker:latest
 
 if %ERRORLEVEL% EQU 0 (
     echo.
     echo Tagging as local image...
-    docker tag scale112/google-ranker:latest google-ranker:latest
+    docker tag googleranker/google-ranker:latest google-ranker:latest
     
     echo.
     echo ========================================

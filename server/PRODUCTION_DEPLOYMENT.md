@@ -4,11 +4,11 @@
 
 ### Production URLs
 - **Frontend**: `https://happy-forest-0fe6bb90f.3.azurestaticapps.net`
-- **Backend**: `https://google-ranker-g5h9g6edawdhbjcw.canadacentral-01.azurewebsites.net`
+- **Backend**: `https://google-ranker-123-bjfkcffffyf0fagk.canadacentral-01.azurewebsites.net`
 
 ### Docker Hub
-- **Latest Image**: `scale112/google-ranker:latest`
-- **Production Tag**: `scale112/google-ranker:v2.0-production`
+- **Latest Image**: `googleranker/google-ranker:latest`
+- **Production Tag**: `googleranker/google-ranker:v2.0-production`
 - **Digest**: `sha256:0aa0e550514e1f93814a1eed1ae7c5af19610005f8aaa3cfc46d258e94269bd4`
 
 ---
@@ -57,7 +57,7 @@ All critical variables now included:
 Make sure your frontend (`happy-forest-0fe6bb90f.3.azurestaticapps.net`) is configured to call:
 ```javascript
 // API Base URL
-const API_URL = 'https://google-ranker-g5h9g6edawdhbjcw.canadacentral-01.azurewebsites.net';
+const API_URL = 'https://google-ranker-123-bjfkcffffyf0fagk.canadacentral-01.azurewebsites.net';
 ```
 
 ---
@@ -77,7 +77,7 @@ az container delete \
 az container create \
   --resource-group google-ranker-rg \
   --name google-ranker \
-  --image scale112/google-ranker:v2.0-production \
+  --image googleranker/google-ranker:v2.0-production \
   --dns-name-label google-ranker \
   --ports 5000 \
   --cpu 1 \
@@ -87,7 +87,7 @@ az container create \
   --environment-variables \
     TOKEN_ENCRYPTION_KEY='gmb-boost-pro-2024-secure-encryption-key-change-this-in-production-32chars' \
     FRONTEND_URL='https://happy-forest-0fe6bb90f.3.azurestaticapps.net' \
-    BACKEND_URL='https://google-ranker-g5h9g6edawdhbjcw.canadacentral-01.azurewebsites.net' \
+    BACKEND_URL='https://google-ranker-123-bjfkcffffyf0fagk.canadacentral-01.azurewebsites.net' \
     GOOGLE_REDIRECT_URI='https://happy-forest-0fe6bb90f.3.azurestaticapps.net/auth/google/callback' \
     ALLOWED_ORIGINS='https://happy-forest-0fe6bb90f.3.azurestaticapps.net,http://localhost:3000,http://localhost:5173'
 
@@ -136,7 +136,7 @@ Basics:
   Container Name: google-ranker
   Region: Canada Central
   Image Source: Other container registries
-  Image: scale112/google-ranker:v2.0-production
+  Image: googleranker/google-ranker:v2.0-production
   OS Type: Linux
   Size: 1 vCPU, 1.5 GB memory
 
@@ -150,7 +150,7 @@ Advanced → Environment Variables:
   
   TOKEN_ENCRYPTION_KEY = gmb-boost-pro-2024-secure-encryption-key-change-this-in-production-32chars
   FRONTEND_URL = https://happy-forest-0fe6bb90f.3.azurestaticapps.net
-  BACKEND_URL = https://google-ranker-g5h9g6edawdhbjcw.canadacentral-01.azurewebsites.net
+  BACKEND_URL = https://google-ranker-123-bjfkcffffyf0fagk.canadacentral-01.azurewebsites.net
   GOOGLE_REDIRECT_URI = https://happy-forest-0fe6bb90f.3.azurestaticapps.net/auth/google/callback
   ALLOWED_ORIGINS = https://happy-forest-0fe6bb90f.3.azurestaticapps.net,http://localhost:3000,http://localhost:5173
 
@@ -171,7 +171,7 @@ Advanced → Restart Policy:
 sleep 30
 
 # Test health endpoint
-curl https://google-ranker-g5h9g6edawdhbjcw.canadacentral-01.azurewebsites.net/health
+curl https://google-ranker-123-bjfkcffffyf0fagk.canadacentral-01.azurewebsites.net/health
 ```
 
 **Expected Response**:
@@ -186,7 +186,7 @@ curl https://google-ranker-g5h9g6edawdhbjcw.canadacentral-01.azurewebsites.net/h
 ### Step 2: Verify Configuration
 
 ```bash
-curl https://google-ranker-g5h9g6edawdhbjcw.canadacentral-01.azurewebsites.net/config
+curl https://google-ranker-123-bjfkcffffyf0fagk.canadacentral-01.azurewebsites.net/config
 ```
 
 **Expected Response**:
@@ -195,7 +195,7 @@ curl https://google-ranker-g5h9g6edawdhbjcw.canadacentral-01.azurewebsites.net/c
   "mode": "AZURE",
   "environment": "production",
   "frontendUrl": "https://happy-forest-0fe6bb90f.3.azurestaticapps.net",
-  "backendUrl": "https://google-ranker-g5h9g6edawdhbjcw.canadacentral-01.azurewebsites.net",
+  "backendUrl": "https://google-ranker-123-bjfkcffffyf0fagk.canadacentral-01.azurewebsites.net",
   "redirectUri": "https://happy-forest-0fe6bb90f.3.azurestaticapps.net/auth/google/callback",
   "allowedOrigins": [
     "https://happy-forest-0fe6bb90f.3.azurestaticapps.net",
@@ -247,7 +247,7 @@ az container delete --resource-group google-ranker-rg --name google-ranker --yes
 az container create \
   --resource-group google-ranker-rg \
   --name google-ranker \
-  --image scale112/google-ranker:v1.1 \
+  --image googleranker/google-ranker:v1.1 \
   --dns-name-label google-ranker \
   --ports 5000 \
   --cpu 1 \
@@ -318,7 +318,7 @@ Update your frontend environment variables:
 
 ```javascript
 // .env.production
-VITE_API_URL=https://google-ranker-g5h9g6edawdhbjcw.canadacentral-01.azurewebsites.net
+VITE_API_URL=https://google-ranker-123-bjfkcffffyf0fagk.canadacentral-01.azurewebsites.net
 VITE_GOOGLE_CLIENT_ID=574451618275-vl5r928f5pj6ogj4le1o75tilhiagmfu.apps.googleusercontent.com
 ```
 
@@ -326,7 +326,7 @@ Or in your staticwebapp.config.json:
 ```json
 {
   "environmentVariables": {
-    "API_URL": "https://google-ranker-g5h9g6edawdhbjcw.canadacentral-01.azurewebsites.net"
+    "API_URL": "https://google-ranker-123-bjfkcffffyf0fagk.canadacentral-01.azurewebsites.net"
   }
 }
 ```
@@ -400,6 +400,6 @@ az container show \
 
 **Your production deployment is ready! 🚀**
 
-**Backend**: https://google-ranker-g5h9g6edawdhbjcw.canadacentral-01.azurewebsites.net  
+**Backend**: https://google-ranker-123-bjfkcffffyf0fagk.canadacentral-01.azurewebsites.net  
 **Frontend**: https://happy-forest-0fe6bb90f.3.azurestaticapps.net  
-**Docker Image**: scale112/google-ranker:v2.0-production
+**Docker Image**: googleranker/google-ranker:v2.0-production

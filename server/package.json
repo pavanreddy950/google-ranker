@@ -19,9 +19,9 @@
     "docker:stop:prod": "docker-compose -f docker-compose.production.yml down",
     "docker:logs": "docker-compose logs -f backend",
     "docker:logs:prod": "docker-compose -f docker-compose.production.yml logs -f backend",
-    "docker:push": "./docker-push.sh scale112",
-    "docker:tag": "docker tag google-ranker-backend:latest scale112/google-ranker-backend:latest",
-    "docker:pull": "docker pull scale112/google-ranker-backend:v6",
+    "docker:push": "./docker-push.sh googleranker",
+    "docker:tag": "docker tag google-ranker-backend:latest googleranker/google-ranker-backend:latest",
+    "docker:pull": "docker pull googleranker/google-ranker-backend:v6",
     "docker:run:hub": "docker-compose -f docker-compose.hub.yml up -d",
     "docker:stop:hub": "docker-compose -f docker-compose.hub.yml down"
   },

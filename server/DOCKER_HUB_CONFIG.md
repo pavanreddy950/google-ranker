@@ -25,13 +25,13 @@ OR leave empty (defaults to Docker Hub)
 
 ### Image and Tag
 ```
-scale112/google-ranker:latest
+googleranker/google-ranker:latest
 ```
 
 Alternative versions:
 ```
-scale112/google-ranker:v1.0
-scale112/google-ranker:stable
+googleranker/google-ranker:v1.0
+googleranker/google-ranker:stable
 ```
 
 ### Port
@@ -68,7 +68,7 @@ Password: [Not needed]
 
 ### For Private Image (If using private registry)
 ```
-Username: scale112
+Username: googleranker
 Password: [Your Docker Hub password/token]
 Registry: docker.io
 ```
@@ -83,9 +83,9 @@ Registry: docker.io
 |-------|-------|
 | **Access Type** | Public |
 | **Registry Server URL** | `docker.io` or leave empty |
-| **Image** | `scale112/google-ranker` |
+| **Image** | `googleranker/google-ranker` |
 | **Tag** | `latest` |
-| **Full Image Path** | `scale112/google-ranker:latest` |
+| **Full Image Path** | `googleranker/google-ranker:latest` |
 | **Port** | `5000` |
 | **Protocol** | `TCP` |
 | **Startup Command** | [Empty - uses default] |
@@ -102,7 +102,7 @@ Registry: docker.io
 Image Source: Other container registries
 Access Type: Public
 Registry Server: docker.io (or leave empty)
-Image and Tag: scale112/google-ranker:latest
+Image and Tag: googleranker/google-ranker:latest
 OS Type: Linux
 Size:
   CPU: 1 cores
@@ -130,7 +130,7 @@ Advanced:
   "containerDefinitions": [
     {
       "name": "google-ranker",
-      "image": "scale112/google-ranker:latest",
+      "image": "googleranker/google-ranker:latest",
       "portMappings": [
         {
           "containerPort": 5000,
@@ -153,7 +153,7 @@ Advanced:
 ### Image Details
 ```
 Registry: Docker Hub (Public)
-Repository: scale112/google-ranker
+Repository: googleranker/google-ranker
 Tag: latest
 Pull Behavior: Always pull latest
 Authentication: None (public image)
@@ -166,7 +166,7 @@ Authentication: None (public image)
 ### Service Settings
 
 ```yaml
-Container Image URL: scale112/google-ranker:latest
+Container Image URL: googleranker/google-ranker:latest
 Container Port: 5000
 
 Registry Type: Docker Hub
@@ -185,7 +185,7 @@ Startup:
 ### Deployment Command
 ```bash
 gcloud run deploy google-ranker \
-  --image=scale112/google-ranker:latest \
+  --image=googleranker/google-ranker:latest \
   --port=5000 \
   --platform=managed \
   --allow-unauthenticated \
@@ -206,7 +206,7 @@ services:
   - name: backend
     image:
       registry_type: DOCKER_HUB
-      registry: scale112
+      registry: googleranker
       repository: google-ranker
       tag: latest
     http_port: 5000
@@ -219,7 +219,7 @@ services:
 ### Container Settings
 ```
 Registry Type: Docker Hub
-Image: scale112/google-ranker:latest
+Image: googleranker/google-ranker:latest
 Port: 5000
 Access Type: Public
 Authentication: Not required
@@ -248,7 +248,7 @@ spec:
     spec:
       containers:
       - name: google-ranker
-        image: scale112/google-ranker:latest
+        image: googleranker/google-ranker:latest
         ports:
         - containerPort: 5000
           protocol: TCP
@@ -277,7 +277,7 @@ spec:
 
 ### Image Pull Configuration
 ```yaml
-Image: scale112/google-ranker:latest
+Image: googleranker/google-ranker:latest
 ImagePullPolicy: Always
 ImagePullSecrets: [] # Not needed for public image
 
@@ -297,7 +297,7 @@ version: '3.8'
 
 services:
   google-ranker:
-    image: scale112/google-ranker:latest
+    image: googleranker/google-ranker:latest
     container_name: google-ranker
     ports:
       - "5000:5000"
@@ -324,14 +324,14 @@ services:
 ```
 Image Source: Other container registries
 Access Type: Public
-Image: scale112/google-ranker:latest
+Image: googleranker/google-ranker:latest
 Port: 5000
 Command: [Leave empty]
 ```
 
 ### AWS Elastic Container Service (ECS)
 ```
-Image: scale112/google-ranker:latest
+Image: googleranker/google-ranker:latest
 Port Mappings: 5000:5000
 Launch Type: Fargate
 Command: [Leave empty]
@@ -339,7 +339,7 @@ Command: [Leave empty]
 
 ### Google Cloud Run
 ```
-Container Image: scale112/google-ranker:latest
+Container Image: googleranker/google-ranker:latest
 Port: 5000
 CPU: 1
 Memory: 1.5 GiB
@@ -349,8 +349,8 @@ Command: [default]
 ### Heroku Container Registry
 ```bash
 # Pull from Docker Hub and push to Heroku
-docker pull scale112/google-ranker:latest
-docker tag scale112/google-ranker:latest registry.heroku.com/your-app/web
+docker pull googleranker/google-ranker:latest
+docker tag googleranker/google-ranker:latest registry.heroku.com/your-app/web
 docker push registry.heroku.com/your-app/web
 heroku container:release web -a your-app
 ```
@@ -358,7 +358,7 @@ heroku container:release web -a your-app
 ### Railway
 ```
 Source: Docker Hub
-Image: scale112/google-ranker:latest
+Image: googleranker/google-ranker:latest
 Port: 5000
 Start Command: [default]
 ```
@@ -366,7 +366,7 @@ Start Command: [default]
 ### Render
 ```
 Type: Web Service
-Image URL: scale112/google-ranker:latest
+Image URL: googleranker/google-ranker:latest
 Port: 5000
 Health Check Path: /health
 ```
@@ -415,7 +415,7 @@ DOCKER HUB CONFIGURATION
 
 Access Type:           Public
 Registry Server:       docker.io
-Image and Tag:         scale112/google-ranker:latest
+Image and Tag:         googleranker/google-ranker:latest
 Port:                  5000
 Protocol:              TCP
 Startup Command:       [Leave empty]
@@ -425,10 +425,10 @@ Environment Variables: [All hardcoded in image]
 Authentication:        Not Required (Public Image)
 
 Pull Command:
-docker pull scale112/google-ranker:latest
+docker pull googleranker/google-ranker:latest
 
 Run Command:
-docker run -d --name google-ranker -p 5000:5000 scale112/google-ranker:latest
+docker run -d --name google-ranker -p 5000:5000 googleranker/google-ranker:latest
 
 Health Check:
 curl http://localhost:5000/health
@@ -442,7 +442,7 @@ curl http://localhost:5000/health
 **For any deployment platform:**
 
 ```
-Image: scale112/google-ranker:latest
+Image: googleranker/google-ranker:latest
 Port: 5000
 Protocol: TCP
 Registry: docker.io (or leave empty)
@@ -461,7 +461,7 @@ Health: /health endpoint on port 5000
 
 ### Pull Image
 ```bash
-docker pull scale112/google-ranker:latest
+docker pull googleranker/google-ranker:latest
 ```
 
 ### Run Container
@@ -470,7 +470,7 @@ docker run -d \
   --name google-ranker \
   -p 5000:5000 \
   --restart unless-stopped \
-  scale112/google-ranker:latest
+  googleranker/google-ranker:latest
 ```
 
 ### Verify Running
@@ -482,10 +482,10 @@ curl http://localhost:5000/health
 
 ### Update to Latest
 ```bash
-docker pull scale112/google-ranker:latest
+docker pull googleranker/google-ranker:latest
 docker stop google-ranker
 docker rm google-ranker
-docker run -d --name google-ranker -p 5000:5000 scale112/google-ranker:latest
+docker run -d --name google-ranker -p 5000:5000 googleranker/google-ranker:latest
 ```
 
 ---
@@ -494,7 +494,7 @@ docker run -d --name google-ranker -p 5000:5000 scale112/google-ranker:latest
 
 - [x] Image Source: Docker Hub (Public)
 - [x] Registry: docker.io
-- [x] Image: scale112/google-ranker:latest
+- [x] Image: googleranker/google-ranker:latest
 - [x] Port: 5000 TCP
 - [x] Command: Default (node server.js)
 - [x] Authentication: Not required

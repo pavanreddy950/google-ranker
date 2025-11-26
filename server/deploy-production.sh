@@ -14,7 +14,7 @@ echo ""
 RESOURCE_GROUP="google-ranker-rg"
 LOCATION="canadacentral"
 CONTAINER_NAME="google-ranker"
-IMAGE="scale112/google-ranker:v2.0-production"
+IMAGE="googleranker/google-ranker:v2.0-production"
 DNS_LABEL="google-ranker"
 PORT=5000
 CPU=1
@@ -22,7 +22,7 @@ MEMORY=1.5
 
 # Production URLs
 FRONTEND_URL="https://happy-forest-0fe6bb90f.3.azurestaticapps.net"
-BACKEND_URL="https://google-ranker-g5h9g6edawdhbjcw.canadacentral-01.azurewebsites.net"
+BACKEND_URL="https://google-ranker-123-bjfkcffffyf0fagk.canadacentral-01.azurewebsites.net"
 REDIRECT_URI="https://happy-forest-0fe6bb90f.3.azurestaticapps.net/auth/google/callback"
 ALLOWED_ORIGINS="https://happy-forest-0fe6bb90f.3.azurestaticapps.net,http://localhost:3000,http://localhost:5173"
 TOKEN_KEY="gmb-boost-pro-2024-secure-encryption-key-change-this-in-production-32chars"

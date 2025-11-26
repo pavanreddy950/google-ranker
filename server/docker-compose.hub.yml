@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   backend:
-    image: scale112/google-ranker:latest
+    image: googleranker/google-ranker:latest
     container_name: google-ranker
     ports:
       - "5000:5000"
