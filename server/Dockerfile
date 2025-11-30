@@ -47,8 +47,8 @@ ENV TOKEN_ENCRYPTION_KEY=gmb-boost-pro-2024-secure-encryption-key-change-this-in
 # Backend URL (Azure Container Instance)
 ENV BACKEND_URL=https://google-ranker-123-bjfkcffffyf0fagk.canadacentral-01.azurewebsites.net
 
-# Hybrid Mode - Support both Azure Static Web Apps and local dev
-ENV ALLOWED_ORIGINS=https://happy-forest-0fe6bb90f.3.azurestaticapps.net,http://localhost:3000,http://localhost:5173
+# Hybrid Mode - Support production, Azure Static Web Apps and local dev
+ENV ALLOWED_ORIGINS=https://www.googleranker.io,https://happy-forest-0fe6bb90f.3.azurestaticapps.net,http://localhost:3000,http://localhost:5173
 
 # Email Service (Optional - SendGrid)
 ENV SENDGRID_API_KEY=
