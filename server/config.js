@@ -209,6 +209,18 @@ class Config {
   }
 
   get allowedOrigins() {
+    // If ALLOWED_ORIGINS is explicitly set, use it
+    if (process.env.ALLOWED_ORIGINS) {
+      const origins = process.env.ALLOWED_ORIGINS.split(',').map(o => o.trim()).filter(Boolean);
+      console.log(`[CONFIG] Using ALLOWED_ORIGINS environment variable`);
+      console.log(`[CONFIG] CORS Origins configured: ${origins.length} origins`);
+      origins.forEach((origin, index) => {
+        console.log(`[CONFIG] Origin ${index + 1}: ${origin}`);
+      });
+      return origins;
+    }
+
+    // Otherwise, build origins list dynamically
     const origins = [];
 
     if (this.isLocal) {
@@ -247,7 +259,7 @@ class Config {
 
     // Remove duplicates and filter out empty values
     const uniqueOrigins = [...new Set(origins.filter(Boolean))];
-    
+
     console.log(`[CONFIG] CORS Origins configured: ${uniqueOrigins.length} origins`);
     uniqueOrigins.forEach((origin, index) => {
       console.log(`[CONFIG] Origin ${index + 1}: ${origin}`);

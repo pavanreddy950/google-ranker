@@ -28,7 +28,12 @@
       "Bash(node scripts/setAdminRole.js:*)",
       "Bash(cmd //c \"taskkill /PID 32848 /F\")",
       "Bash(cmd //c \"taskkill /PID 21016 /F\")",
-      "Bash(cmd //c \"taskkill /PID 7024 /F\")"
+      "Bash(cmd //c \"taskkill /PID 7024 /F\")",
+      "Bash(cmd //c \"taskkill /PID 35704 /F\")",
+      "Bash(docker build:*)",
+      "Bash(docker --version:*)",
+      "Bash(cat:*)",
+      "Bash(git add:*)"
     ],
     "deny": [],
     "ask": []
